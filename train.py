@@ -82,7 +82,7 @@ class TrainingPipeline(object):
         y_shape = y.shape[0]
         #y = y.reshape(-1)
         y = np_utils.to_categorical(y).astype(np.uint8)
-        y = y.reshape(y_shape, h, w, 4)
+        y = y.reshape(y_shape, 1, 1, 4)
         # shuffle the dataset
         shuffle = list(zip(x, y))
         np.random.seed(180)
