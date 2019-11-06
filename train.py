@@ -80,7 +80,7 @@ class TrainingPipeline(object):
 
         # turn y into one-hot encoded
         y_shape = y.shape[0]
-        y = y.reshape(-1)
+        #y = y.reshape(-1)
         y = np_utils.to_categorical(y).astype(np.uint8)
         y = y.reshape(y_shape, h, w, 4)
         # shuffle the dataset
