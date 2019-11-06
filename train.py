@@ -112,9 +112,9 @@ if __name__ == "__main__":
     # generate training and validation data
 
     train_start = 0
-    train_end = 3 
+    train_end = 20 
 
-    valid_start = 97
+    valid_start = 95
     valid_end = 100
 
     h = 33
@@ -138,8 +138,8 @@ if __name__ == "__main__":
 
     # fit the model using pipeline
 
-#    pipeline.fit_model(x_train, y_train, x_valid, y_valid, model_name)
-#    pipeline.save_model(model_name)
+    pipeline.fit_model(x_train, y_train, x_valid, y_valid, model_name)
+    pipeline.save_model(model_name)
     
 
 
