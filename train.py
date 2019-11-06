@@ -103,7 +103,7 @@ if __name__ == "__main__":
 
     model_name = input('Model name: ')
 
-    pipeline = TrainingPipeline(batch_size = 4 , epochs = 10)
+    pipeline = TrainingPipeline(batch_size = 256 , epochs = 10)
 
     # model info and architecture
     print(pipeline.model.summary())
@@ -113,10 +113,10 @@ if __name__ == "__main__":
     # generate training and validation data
 
     train_start = 0
-    train_end = 5 
+    train_end = 80  
 
-    valid_start = 99  
-    valid_end = 100
+    valid_start = 100   
+    valid_end = 120
 
     h = 33
     w = 33
