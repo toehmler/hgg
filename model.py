@@ -54,7 +54,9 @@ class model(object):
         model = Model(inputs=X_input, outputs=out)
 
         sgd = SGD(lr=0.08, momentum=0.9, decay=5e-6, nesterov=False)
-        model.compile(loss=gen_dice_loss, optimizer=sgd, metrics=[dice_whole_metric,dice_core_metric,dice_en_metric])
+        model.compile(loss=gen_dice_loss, optimizer=sgd, metrics=[dice_whole_metric,
+                                                                  dice_core_metric,
+                                                                  dice_en_metric])
         #load weights if set for prediction
 #        if self.load_model_weights is not None:
 #            model.load_weights(self.load_model_weights)
