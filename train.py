@@ -63,7 +63,7 @@ class TrainingPipeline(object):
                         batch_size = self.batch_size,
                         validation_data = (x_valid, y_valid), 
                         verbose = 1,
-                        callbacks = [checkpointer, SGDLearningRateTracker()])
+                        callbacks = [checkpointer])
 
     def generate_patches(self, start, end, h, w):
         patches = patchExtractor(start, end, self.root)
