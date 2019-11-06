@@ -102,7 +102,7 @@ if __name__ == "__main__":
 
     model_name = input('Model name: ')
 
-    pipeline = TrainingPipeline(batch_size = 512, epochs = 10)
+    pipeline = TrainingPipeline(batch_size = 4 , epochs = 10)
 
     # model info and architecture
     print(pipeline.model.summary())
