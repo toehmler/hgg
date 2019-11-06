@@ -113,9 +113,9 @@ if __name__ == "__main__":
     # generate training and validation data
 
     train_start = 0
-    train_end = 20 
+    train_end = 5 
 
-    valid_start = 95
+    valid_start = 99  
     valid_end = 100
 
     h = 33
