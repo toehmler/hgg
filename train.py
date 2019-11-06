@@ -62,7 +62,7 @@ class TrainingPipeline(object):
                         epochs = self.epochs,
                         batch_size = self.batch_size,
                         validation_data = (x_valid, y_valid), 
-                        verbose = 1),
+                        verbose = 1,
                         callbacks = [checkpointer,
                                     SGDLearningRateTracker()])
 
