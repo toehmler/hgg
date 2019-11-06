@@ -57,7 +57,7 @@ class TrainingPipeline(object):
         print('Model weights saved')
     
     def fit_model(self, x_train, y_train, x_valid, y_valid, name):
-        checkpointer = ModelCheckoint(filepath='outputs/weights.{epoch:02d}-{val_loss:.2f}.hdf5', verbose = 1)
+        checkpointer = ModelCheckpoint(filepath='outputs/weights.{epoch:02d}-{val_loss:.2f}.hdf5', verbose = 1)
         self.model.fit(x_train, y_train, 
                         epochs = self.epochs,
                         batch_size = self.batch_size,
