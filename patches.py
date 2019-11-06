@@ -122,7 +122,8 @@ class patchExtractor(object):
             # combine pathches from other modalities
             tmp = self.training_scans[patient_id][0:4, slice_idx, p_y[0]:p_y[1], p_x[0]:p_x[1]]
             # get label patch
-            label = gt_scan[patient_id, slice_idx, p_y[0]:p_y[1], p_x[0]:p_x[1]]
+            label = gt_scan[patient_id, slice_idx, p[0], p[1]]
+#            label = gt_scan[patient_id, slice_idx, p_y[0]:p_y[1], p_x[0]:p_x[1]]
 
             # only keep patches of the correct size
             if tmp.shape != (4, h, w):
@@ -157,9 +158,9 @@ if __name__ == '__main__':
 
     # turn y into one-hot encoding for keras 
     label_shape = labels.shape[0]
-    labels = labels.reshape(-1)
+#    labels = labels.reshape(-1)
     labels = np_utils.to_categorical(labels).astype(np.uint8)
-    labels = labels.reshape(label_shape, 33, 33, 5)
+    labels = labels.reshape(label_shape, 1, 1, 4)
 
     # shuffle dataset
     shuffle = list(zip(patches, labels))
