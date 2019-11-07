@@ -77,7 +77,6 @@ class TrainingPipeline(object):
         y[y == 3] = 1
         y[y == 4] = 3
 
-
         # turn y into one-hot encoded
         y_shape = y.shape[0]
         #y = y.reshape(-1)
@@ -103,7 +102,7 @@ if __name__ == "__main__":
 
     model_name = input('Model name: ')
 
-    pipeline = TrainingPipeline(batch_size = 256 , epochs = 10)
+    pipeline = TrainingPipeline(batch_size = 1024 , epochs = 10)
 
     # model info and architecture
     print(pipeline.model.summary())
@@ -113,10 +112,10 @@ if __name__ == "__main__":
     # generate training and validation data
 
     train_start = 0
-    train_end = 80  
+    train_end = 160  
 
-    valid_start = 100   
-    valid_end = 120
+    valid_start = 161 
+    valid_end = 200 
 
     h = 33
     w = 33

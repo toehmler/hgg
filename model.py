@@ -1,4 +1,5 @@
 from keras import layers
+from keras.layers.advanced_activations import PReLU
 from keras.layers import Input, Dense, Activation, ZeroPadding2D, BatchNormalization, Flatten, Conv2D, Lambda,Concatenate
 from keras.layers import AveragePooling2D, MaxPooling2D, Dropout, GlobalMaxPooling2D, GlobalAveragePooling2D, Add
 from keras.layers import Maximum
@@ -22,30 +23,44 @@ class model(object):
         # consider switching from relu to PReLU
          
         X_input = Input(input_shape)
+        X = GaussianNoise(0.01)(i)
+
 
         local = Conv2D(64, (4,4),
-                strides=(1,1), padding='valid', activation='relu')(X_input)
+                strides=(1,1), padding='valid')(X_input)
         local = BatchNormalization()(local)
+        local = PReLU(shared_axes=[1,2])(local)
+
         local = Conv2D(64, (4,4),
-                strides=(1,1), padding='valid', activation='relu')(local)
+                strides=(1,1), padding='valid')(local)
         local = BatchNormalization()(local)
+        local = PReLU(shared_axes=[1,2])(local)
+
         local = Conv2D(64, (4,4),
-                strides=(1,1), padding='valid', activation='relu')(local)
+                strides=(1,1), padding='valid')(local)
         local = BatchNormalization()(local)
+        local = PReLU(shared_axes=[1,2])(local)
+
         local = Conv2D(64, (4,4),
-                strides=(1,1), padding='valid', activation='relu')(local)
+                strides=(1,1), padding='valid')(local)
         local = BatchNormalization()(local)
+        local = PReLU(shared_axes=[1,2])(local)
+
 
         inter = Conv2D(64, (7,7),
-                strides=(1,1), padding='valid', activation='relu')(X_input)
+                strides=(1,1), padding='valid')(X_input)
         inter = BatchNormalization()(inter)
+        inter = PReLU(shared_axes=[1,2])(inter)
+
         inter = Conv2D(64, (7,7),
-                strides=(1,1), padding='valid', activation='relu')(inter)
+                strides=(1,1), padding='valid')(inter)
         inter = BatchNormalization()(inter)
+        inter = PReLU(shared_axes=[1,2])(inter)
 
         uni = Conv2D(160, (13,13),
-                strides=(1,1), padding='valid', activation='relu')(X_input)
+                strides=(1,1), padding='valid')(X_input)
         uni = BatchNormalization()(uni)
+        uni = PReLU(shared_axes=[1,2])(uni)
 
         out = Concatenate()([local, inter, uni])
         out = Conv2D(4,(21,21),strides=(1,1),padding='valid')(out)
