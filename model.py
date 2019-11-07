@@ -2,7 +2,7 @@ from keras import layers
 from keras.layers.advanced_activations import PReLU
 from keras.layers import Input, Dense, Activation, ZeroPadding2D, BatchNormalization, Flatten, Conv2D, Lambda,Concatenate
 from keras.layers import AveragePooling2D, MaxPooling2D, Dropout, GlobalMaxPooling2D, GlobalAveragePooling2D, Add
-from keras.layers import Maximum
+from keras.layers import Maximum, GaussianNoise
 from keras.models import Model
 from keras import regularizers
 from keras.optimizers import SGD
