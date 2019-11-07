@@ -23,7 +23,7 @@ class model(object):
         # consider switching from relu to PReLU
          
         X_input = Input(input_shape)
-        X = GaussianNoise(0.01)(i)
+        X = GaussianNoise(0.01)(X_input)
 
 
         local = Conv2D(64, (4,4),
